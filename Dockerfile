@@ -4,9 +4,7 @@ FROM python:$PYTHON_VERSION-slim
 ARG USER=pydfy-user
 ENTRYPOINT ["poetry", "run", "python"]
 
-COPY --from=seleniarm/standalone-chromium:latest /usr/bin/chromedriver /usr/bin/chromedriver
-
-RUN apt-get update && apt-get install -y chromium curl
+RUN apt-get update && apt-get install -y chromium chromium-driver curl
 RUN curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64 && \
     chmod +x tailwindcss-linux-x64 && \
     mv tailwindcss-linux-x64 /usr/local/bin/tailwindcss
