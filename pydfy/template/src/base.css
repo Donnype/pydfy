@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media print { body { -webkit-print-color-adjust: exact; } }
+
+@page {
+    size: A4;
+    margin: 1cm;
+}
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+        font-size: 8pt;
+    }
+}
+
+@media print {
+    thead {display: table-row-group;}
+}

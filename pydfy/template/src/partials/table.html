@@ -1,0 +1,21 @@
+<div class="pf-table">
+    <span class="pf-table-title font-bold text-xl">{{ component.title }}</span>
+    <table class="w-full">
+        <thead>
+            <tr class="pf-table-header text-left table-fixed [&>*]:px-4">
+                {% for header in component._headers %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody class="pf-table-content">
+            {% for row in component._rows %}
+                <tr class="even:bg-gray-200 odd:bg-white [&>*]:px-4">
+                    {% for value in row %}
+                        <td class="border-l border-black">{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,12 @@
+# IntelliJ
+
+.idea
+*.iml
+
+__pycache__
+*.swp
+**/build
+**/assets
+**/dist
+.DS_Store
+**/out.pdf

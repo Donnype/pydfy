@@ -1,0 +1,5 @@
+@import "../../pydfy/template/src/base.css";
+
+.pf-number-content {
+    color: blue;
+}

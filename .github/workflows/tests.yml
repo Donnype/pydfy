@@ -1,0 +1,37 @@
+name: Tests and Linting
+
+on:
+  workflow_call:
+  push:
+    branches:
+      - main
+
+jobs:
+  unit-tests:
+    name: Unit tests ${{ matrix.python-version }}
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [ "3.10", "3.11", "3.12" ]
+      fail-fast: false
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build unit tests image
+        run: docker build --build-arg PYTHON_VERSION=${{ matrix.python-version }} -t pydfy .
+
+      - name: Run pytest
+        run: docker run pydfy -m pytest
+
+  checks:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v3
+      - uses: pre-commit/action@v3.0.0

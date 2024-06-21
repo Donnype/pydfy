@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="./out.css" rel="stylesheet">
+</head>
+    <body>
+        {% for row in pdf.components %}
+                <div class="mb-8">
+                    {% if row is sequence %}
+                        <div class="grid grid-cols-{{row | sum(attribute='col_span') }} gap-x-4">
+                            {% for component in row %}
+                                <div class="col-span-{{component.col_span}}">
+                                    {% include component.template_path %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {% with component=row %}
+                            {% include component.template_path %}
+                        {% endwith %}
+                    {% endif %}
+                </div>
+        {% endfor %}
+    </body>
+</html>
