@@ -9,4 +9,3 @@ __pycache__
 **/assets
 **/dist
 .DS_Store
-**/out.pdf
