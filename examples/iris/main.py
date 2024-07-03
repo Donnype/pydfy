@@ -22,7 +22,7 @@ def main():
 
     pf.PDF(
         [
-            pf.Title("My Beautiful Report with a very long title that I'd really like to keep", col_span=2),
+            pf.Title("My Report Title Spanning Multiple Columns", col_span=2),
             pf.Image(Path(__file__).parent / "logo.png"),
         ],
         pf.Section("Documentation"),

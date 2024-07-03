@@ -1,4 +1,8 @@
-@import "../../pydfy/template/src/base.css";
+@tailwind base;  @tailwind components; @tailwind utilities;
+@media print { body { -webkit-print-color-adjust: exact; } }
+@media print {  html, body { width: 210mm; height: 297mm; font-size: 8pt; } }
+@media print { thead {display: table-row-group;} }
+@page { size: A4; margin: 1cm; }
 
 .pf-number-content {
     color: blue;

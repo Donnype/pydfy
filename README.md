@@ -89,9 +89,9 @@ pdf.render(out="report.pdf", build_dir="/build")
 # Save everything in the /data directory
 pdf.render(out="/data/report.pdf", build_dir="/data")
 
-# Equivalent to the previous line
-os.environ["PYDFY_BUILD_DIR"] = "/data"
-pdf.render(out="/data/report.pdf")
+# Only save the pdf in the /data directory
+os.environ["PYDFY_OUT"] = "/data/report.pdf"
+pdf.render()
 ```
 
 ### Custom Components
@@ -133,9 +133,14 @@ You can add custom CSS to the compilation step:
 pdf.render(css="blue.css")
 ```
 
-Content of `my.css`, where the path should point to your pydfy install:
+Content of `my.css`, where we need to copy the contents of `base.css` first:
 ```css
-@import "../../pydfy/template/src/base.css";
+/* Tailwind setup */
+@tailwind base;  @tailwind components; @tailwind utilities;
+@media print { body { -webkit-print-color-adjust: exact; } }
+@media print {  html, body { width: 210mm; height: 297mm; font-size: 8pt; } }
+@media print { thead {display: table-row-group;} }
+@page { size: A4; margin: 1cm; }
 
 .pf-number-content {
     color: blue;
@@ -151,7 +156,7 @@ You could use Docker in the development process as follows:
 ```shell
 docker build -t pydfy .
 cd examples/iris
-docker run -v $PWD/:/data pydfy /data/main.py  # The docker image is configured with PYDFY_BUILD_DIR=/data
+docker run -v $PWD:/pydfy pydfy > out.pdf  # The docker image is configured to run main.py and write to stdout
 ```
 
 ## Contributing

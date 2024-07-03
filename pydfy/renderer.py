@@ -26,7 +26,7 @@ def render(
         build_dir.mkdir(exist_ok=True, parents=True)
 
     if not out:
-        out = Path(os.getenv("PYDFY_BUILD_DIR", ".")) / Path("out.pdf")
+        out = Path(os.getenv("PYDFY_OUT", "./out.pdf"))
 
     out = Path(out)
 
@@ -61,21 +61,20 @@ def _render_template(template_file: Path, out: Path, pdf_arguments: _PDF) -> Non
 
 
 def _compile_css(build_dir: Path, css: Path | str | None) -> None:
-    base = str(BASE_DIR / "pydfy" / "template" / "src" / "base.css")
-    out = str(build_dir / "out.css")
+    base = str((BASE_DIR / "pydfy" / "template" / "src" / "base.css").absolute())
+    out = str((build_dir / "out.css").absolute())
 
-    args = [
+    tailwind_args = [
         "tailwindcss",
         "-i",
         base if not css else str(Path(css)),
         "-o",
         out,
         "--content",
-        str(relative_to(build_dir, Path().absolute())) + "/*.html",
+        str(build_dir.absolute()) + "/*.html",
     ]
-    # if css:
 
-    subprocess.run(args, capture_output=True)
+    subprocess.run(tailwind_args, capture_output=True)
 
 
 def _print_to_pdf(rendered_template_file: Path, output_path: Path) -> None:
