@@ -21,14 +21,14 @@ First, make sure `tailwindcss` is in your `PATH`, which for Linux means:
 ```shell
 curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-x64
 chmod +x tailwindcss-linux-x64
-mv tailwindcss-linux-x64 /usr/local/bin/tailwindcss
+sudo mv tailwindcss-linux-x64 /usr/local/bin/tailwindcss
 ```
 Check https://github.com/tailwindlabs/tailwindcss/releases/latest to find the matching binary for your system.
 
 Also make sure to install Chromium:
 ```shell
-apt-get update && apt-get install -y chromium  # Example using apt-get
-brew install --cask chromium                   # Homebrew example for macOS
+apt-get update && apt-get install -y chromium-driver  # Example using apt-get
+brew install --cask chromium                          # Homebrew example for macOS
 ```
 
 Now run:
