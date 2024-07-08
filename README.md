@@ -1,4 +1,4 @@
-# Pydfy: PDF Generation Made Simple
+# Pydfy: PDF Reporting Made Easy
 
 <div align="center">
 
