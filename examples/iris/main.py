@@ -32,6 +32,7 @@ def main():
             pf.Number(iris_df.shape[0], "Sample size"),
             pf.Number(len(iris_df.species.unique()), "Unique species"),
             pf.Number(iris_df.sepal_length.max(), "Max Sepal Length"),
+            pf.Kpi(482.537, 595.092, "Compare KPI"),
         ],
         pf.Table(iris_df.head(10), "Iris dataset"),
         [pf.Figure(width_figure), pf.Figure(length_figure)],
