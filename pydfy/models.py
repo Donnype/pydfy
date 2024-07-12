@@ -52,6 +52,15 @@ class Number(Component):
 
 
 @dataclass
+class Kpi(Component):
+    current: Union[int, float]
+    goal: Union[int, float]
+    title: str
+
+    template_path: str = field(kw_only=True, default="src/partials/kpi.html")
+
+
+@dataclass
 class Paragraph(Component):
     content: str
 
