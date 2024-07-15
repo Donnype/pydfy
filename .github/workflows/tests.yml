@@ -2,6 +2,7 @@ name: Tests and Linting
 
 on:
   workflow_call:
+  pull_request:
   push:
     branches:
       - main
