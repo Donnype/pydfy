@@ -52,6 +52,22 @@ class Number(Component):
 
 
 @dataclass
+class KPI(Component):
+    current: Union[int, float]
+    target: Union[int, float]
+    title: str
+
+    template_path: str = field(kw_only=True, default="src/partials/kpi.html")
+
+    @property
+    def _percent(self) -> float:
+        if self.target == 0:
+            return float("inf")
+        else:
+            return (self.current - self.target) / self.target * 100
+
+
+@dataclass
 class Paragraph(Component):
     content: str
 
