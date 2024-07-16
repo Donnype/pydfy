@@ -32,7 +32,10 @@ def main():
             pf.Number(iris_df.shape[0], "Sample size"),
             pf.Number(len(iris_df.species.unique()), "Unique species"),
             pf.Number(iris_df.sepal_length.max(), "Max Sepal Length"),
-            pf.Kpi(482.537, 595.092, "Compare KPI"),
+        ],
+        [
+            pf.KPI(round(taxi_df["tip"].mean(), 2), 3, "Average Tip"),
+            pf.KPI(taxi_df[taxi_df["tip"] < 1].shape[0], 1, "Tips under 1$"),
         ],
         pf.Table(iris_df.head(10), "Iris dataset"),
         [pf.Figure(width_figure), pf.Figure(length_figure)],
