@@ -1,10 +1,8 @@
 <div class="pf-kpi border-solid border border-gray-100">
     <div class="pf-kpi-title bg-gray-200 text-lg font-bold text-center align-top">{{ component.title }}</div>
-    <div class="pf-number-content mt-2 text-center">
+    <div class="pf-kpi-content mt-2 text-center">
         <div class="text-3xl">{{ "{:,}".format(component.current) }}</div>
-        <div class="text-xs mb-2">{{ "Goal: {:,} ({:+.2f} %)".format(component.goal,
-                                                                     (component.current -
-                                                                      component.goal) /
-                                                                      component.goal * 100) }}</div>
+        <div class="text-xs mb-2">{{ "Target: {:,} ({:+.2f} %)".format(component.target,
+                                                                       component._percent) }}</div>
     </div>
 </div>
