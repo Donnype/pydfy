@@ -78,7 +78,7 @@ def test_all_components(tmp_path, out):
         [
             pf.Number(df.shape[0], "Sample size"),
             pf.Number(df[1].max(), "Max"),
-            pf.Kpi(482.537, 595.092, "Compare"),
+            pf.KPI(482.537, 595.092, "Compare"),
         ],
         pf.Table(df.head(10), "Test dataset"),
         [pf.Image(asset_dir / "hist.png"), pf.Figure(figure)],
