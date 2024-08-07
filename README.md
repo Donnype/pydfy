@@ -1,4 +1,4 @@
-# Pydfy: PDF Reporting Made Easy
+# Pydfy: Turn DataFrames into PDF Reports
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 
 </div>
 
-Pydfy makes creating beautiful PDF reports as simple as you'd hope it to be.
+Pydfy makes creating beautiful PDF reports in Python as simple as you'd hope it to be.
 In practice, this is often not the case as:
 - Not the whole team knows LaTeX
 - The support for this in BI tooling is lacking
