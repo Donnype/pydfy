@@ -8,12 +8,15 @@
 
 </div>
 
-Pydfy makes creating beautiful PDF reports in Python as simple as you'd hope it to be.
+Pydfy makes creating beautiful PDF reports in Python as simple as you hope it to be.
 In practice, this is often not the case as:
 - Not the whole team knows LaTeX
 - The support for this in BI tooling is lacking
 - Webpages are usually not tuned for PDF exports
 - PDF builders are too complex to get something out the door by the end of the week
+
+Hence, `pydfy` boils it down to the data and some text, with just enough CSS to beat `matplotlib` in terms of design.
+Fortunately, that bar was not high.
 
 ## Installation
 
