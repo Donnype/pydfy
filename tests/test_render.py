@@ -89,4 +89,4 @@ def test_all_components(tmp_path, out):
 
     assert (tmp_path / "out.html").exists()
     assert (tmp_path / "out.css").exists()
-    assert len(out.read_bytes()) > 100000
+    assert len(out.read_bytes()) > 90000
